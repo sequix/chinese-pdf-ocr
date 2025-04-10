@@ -14,8 +14,9 @@ from pdfocr import PdfOcrTool
 # end of self-defined module list
 
 app = Flask(__name__)
+app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
+app.config['MAX_FORM_MEMORY_SIZE'] = 16 * 1024 * 1024
 ocr = PdfOcrTool()
-
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
